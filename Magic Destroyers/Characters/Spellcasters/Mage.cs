@@ -43,30 +43,6 @@ namespace Magic_Destroyers.Characters.Spellcasters
             }
         }
 
-        public int HealthPoints
-        {
-            get
-            {
-                return healthPoints;
-            }
-            set
-            {
-                healthPoints = 100;
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return level;
-            }
-            set
-            {
-                level = 1;
-            }
-        }
-
         public string Name
         {
             get
@@ -86,10 +62,71 @@ namespace Magic_Destroyers.Characters.Spellcasters
             }
         }
 
+        public int Level
+        {
+            get
+            {
+                return level;
+            }
+            set
+            {
+                level = 1;
+            }
+        }
+
+        public int HealthPoints
+        {
+            get
+            {
+                return healthPoints;
+            }
+            set
+            {
+                healthPoints = 100;
+            }
+        }
+
+        public ClothRobe BodyArmor
+        {
+            get
+            {
+                return bodyArmor;
+            }
+            private set
+            {
+                bodyArmor = value;
+            }
+        }
+
+        public Staff Weapon
+        {
+            get
+            {
+                return weapon;
+            }
+            set
+            {
+                weapon = value;
+            }
+        }
 
         public Mage()
+            :this ("Unnamed Mage", 10)
         {
+        }
 
+        public Mage(string name, int level)
+            :this(name, level, 100)
+        {
+        }
+
+        public Mage(string name, int level, int healthPoints)
+        {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
+            BodyArmor = new ClothRobe();
+            Weapon = new Staff();
         }
 
         public void ArcaneWrath()
