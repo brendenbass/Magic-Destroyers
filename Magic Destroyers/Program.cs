@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Magic_Destroyers.Characters.Melee;
+using System;
 
 namespace Magic_Destroyers
 {
@@ -7,6 +8,9 @@ namespace Magic_Destroyers
         static void Main(string[] args)
         {
             Console.WriteLine("Hello World!");
+
+            Assassin Mark = new Assassin();
+            Mark.Name = "Tu";
         }
     }
 }
