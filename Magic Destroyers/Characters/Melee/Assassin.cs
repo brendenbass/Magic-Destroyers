@@ -86,9 +86,34 @@ namespace Magic_Destroyers.Characters.Melee
             }
         }
 
-        public Assassin()
+        public LightLeatherVest BodyArmor
         {
+            get { return bodyArmor; }
+            private set { bodyArmor = value; }
+        }
+        public Sword Weapon
+        {
+            get { return weapon; }
+            private set { weapon = value; }
+        }
 
+        public Assassin()
+            :this ("No Name", 10)
+        {
+        }
+
+        public Assassin(string name, int level)
+            :this (name, level, 100)
+        {
+        }
+
+        public Assassin(string name, int level, int healthPoints)
+        {
+            Name = name;
+            Level = level;
+            HealthPoints = healthPoints;
+            Weapon = new Sword();
+            BodyArmor = new LightLeatherVest();
         }
 
         public void Raze()

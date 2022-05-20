@@ -86,10 +86,45 @@ namespace Magic_Destroyers.Characters.Melee
             }
         }
 
+        public Chainlink BodyArmor
+        {
+            get
+            {
+                return bodyArmor;
+            }
+            private set
+            {
+                bodyArmor = value;
+            }
+        }
+
+        public Hammer Weapon
+        {
+            get
+            {
+                return weapon;
+            }
+            private set
+            {
+                weapon = value;
+            }
+        }
 
         public Knight()
+            :this ("Unnamed Knight", 10)
         {
-
+        }
+        public Knight(string name, int level)
+            :this(name, level, 100)
+        {
+        }
+        public Knight(string name, int level, int healthPoints)
+        {
+            HealthPoints = healthPoints;
+            Level = level;
+            Name = name;
+            BodyArmor = new Chainlink();
+            Weapon = new Hammer();
         }
 
         public void HolyBlow()

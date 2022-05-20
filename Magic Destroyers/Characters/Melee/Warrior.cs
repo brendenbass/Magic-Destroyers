@@ -86,10 +86,47 @@ namespace Magic_Destroyers.Characters.Melee
             }
         }
 
+        public Chainlink BodyArmor
+        {
+            get
+            {
+                return bodyArmor;
+            }
+            private set
+            {
+                bodyArmor = value;
+            }
+        }
+        
+        public Axe Weapon
+        {
+            get
+            {
+                return weapon;
+            }
+            set
+            {
+                weapon = value;
+            }
+        }
 
         public Warrior()
+            :this("Unnamed Warrior", 10)
         {
+        }
 
+        public Warrior(string name, int level)
+            :this(name, level, 100)
+        {
+        }
+
+        public Warrior(string name, int level, int healthPoints)
+        {
+            HealthPoints = healthPoints;
+            Level = level;
+            Name = name;
+            BodyArmor = new Chainlink();
+            Weapon = new Axe();
         }
 
         public void Strike()
