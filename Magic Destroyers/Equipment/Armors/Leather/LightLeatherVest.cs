@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Armors
+namespace Magic_Destroyers.Equipment.Armors.Leather
 {
-    public class Chainlink
+    public class LightLeatherVest : Armor
     {
-        private int armorPoints;
     }
 }

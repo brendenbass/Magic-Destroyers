@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Equipment.Weapons
+namespace Magic_Destroyers.Equipment.Weapons.Sharp
 {
-    public class Sword
+    public class Axe : Weapon
     {
-        public int damage;
-
-        public void Bloodthirst()
+        public void HackNSlash()
         {
 
         }

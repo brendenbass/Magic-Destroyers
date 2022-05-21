@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Armors
+namespace Magic_Destroyers.Equipment.Armors.Heavy
 {
-    public class ClothRobe
+    public class Chainlink : Armor
     {
-        private int armorPoints;
     }
 }

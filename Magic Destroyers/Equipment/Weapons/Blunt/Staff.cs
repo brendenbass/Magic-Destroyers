@@ -4,10 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Armors
+namespace Magic_Destroyers.Equipment.Weapons.Blunt
 {
-    public class LightLeatherVest
+    public class Staff: Weapon
     {
-        private int armorPoints;
+        public void Empower()
+        {
+
+        }
     }
 }

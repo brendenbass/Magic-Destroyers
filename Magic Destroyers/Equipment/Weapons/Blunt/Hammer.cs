@@ -4,13 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Magic_Destroyers.Equipment.Weapons
+namespace Magic_Destroyers.Equipment.Weapons.Blunt
 {
-    public class Staff
+    public class Hammer : Weapon
     {
-        public int damage;
-
-        public void Empower()
+        public void Stun()
         {
 
         }

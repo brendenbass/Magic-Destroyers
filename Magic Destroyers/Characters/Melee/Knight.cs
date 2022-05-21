@@ -1,5 +1,6 @@
-﻿using Magic_Destroyers.Armors;
-using Magic_Destroyers.Equipment.Weapons;
+﻿using Magic_Destroyers.Enums;
+using Magic_Destroyers.Equipment.Armors.Heavy;
+using Magic_Destroyers.Equipment.Weapons.Blunt;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,83 +9,18 @@ using System.Threading.Tasks;
 
 namespace Magic_Destroyers.Characters.Melee
 {
-    public class Knight
+    public class Knight : Melee
     {
-        private int abilityPoints;
-        private string faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+        private const string DEFAULT_NAME = "Jimbob";
+        private const int DEFAULT_LEVEL = 10;
+        private const int DEFAULT_HEALTH_POINTS = 120;
+        private const int DEFAULT_ABILITY_POINTS = 100;
+
+        private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
+        private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
         private Chainlink bodyArmor;
         private Hammer weapon;
-
-        public int AbilityPoints
-        {
-            get
-            {
-                return abilityPoints;
-            }
-            set
-            {
-                abilityPoints = 100;
-            }
-        }
-
-        public string Faction
-        {
-            get
-            {
-                return faction;
-            }
-            set
-            {
-                faction = "Melee";
-            }
-        }
-
-        public int HealthPoints
-        {
-            get
-            {
-                return healthPoints;
-            }
-            set
-            {
-                healthPoints = 100;
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return level;
-            }
-            set
-            {
-                level = 1;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (value.Length <= 2 || value.Length >= 21)
-                {
-                    throw new ArgumentOutOfRangeException(String.Empty, $"The {this.GetType().Name}'s name length must be between 3 - 20 characters.");
-                }
-                else
-                {
-                    name = value;
-                }
-            }
-        }
 
         public Chainlink BodyArmor
         {
@@ -111,20 +47,24 @@ namespace Magic_Destroyers.Characters.Melee
         }
 
         public Knight()
-            :this ("Unnamed Knight", 10)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
         }
+
         public Knight(string name, int level)
-            :this(name, level, 100)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
+
         public Knight(string name, int level, int healthPoints)
         {
             HealthPoints = healthPoints;
             Level = level;
             Name = name;
-            BodyArmor = new Chainlink();
-            Weapon = new Hammer();
+            AbilityPoints = DEFAULT_ABILITY_POINTS;
+            Faction = DEFAULT_FACTION;
+            BodyArmor = DEFAULT_BODY_ARMOR;
+            Weapon = DEFAULT_WEAPON;
         }
 
         public void HolyBlow()

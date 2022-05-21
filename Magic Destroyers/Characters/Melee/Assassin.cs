@@ -1,5 +1,6 @@
-﻿using Magic_Destroyers.Armors;
-using Magic_Destroyers.Equipment.Weapons;
+﻿using Magic_Destroyers.Enums;
+using Magic_Destroyers.Equipment.Armors.Leather;
+using Magic_Destroyers.Equipment.Weapons.Sharp;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,83 +9,18 @@ using System.Threading.Tasks;
 
 namespace Magic_Destroyers.Characters.Melee
 {
-    public class Assassin
+    public class Assassin : Melee
     {
-        private int abilityPoints;
-        private string faction;
-        private int healthPoints;
-        private int level;
-        private string name;
+        private const string DEFAULT_NAME = "Jimbob";
+        private const int DEFAULT_LEVEL = 10;
+        private const int DEFAULT_HEALTH_POINTS = 120;
+        private const int DEFAULT_ABILITY_POINTS = 100;
+
+        private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
+        private readonly Sword DEFAULT_WEAPON = new Sword();
 
         private LightLeatherVest bodyArmor;
         private Sword weapon;
-
-        public int AbilityPoints
-        {
-            get
-            {
-                return abilityPoints;
-            }
-            set
-            {
-                abilityPoints = 100;
-            }
-        }
-
-        public string Faction
-        {
-            get
-            {
-                return faction;
-            }
-            set
-            {
-                faction = "Melee";
-            }
-        }
-
-        public int HealthPoints
-        {
-            get
-            {
-                return healthPoints;
-            }
-            set
-            {
-                healthPoints = 100;
-            }
-        }
-
-        public int Level
-        {
-            get
-            {
-                return level;
-            }
-            set
-            {
-                level = 1;
-            }
-        }
-
-        public string Name
-        {
-            get
-            {
-                return name;
-            }
-            set
-            {
-                if (value.Length <= 2 || value.Length >= 21)
-                {
-                    throw new ArgumentOutOfRangeException(String.Empty, $"The {this.GetType().Name}'s name length must be between 3 - 20 characters.");
-                }
-                else
-                {
-                    name = value;
-                }
-            }
-        }
 
         public LightLeatherVest BodyArmor
         {
@@ -98,22 +34,24 @@ namespace Magic_Destroyers.Characters.Melee
         }
 
         public Assassin()
-            :this ("No Name", 10)
+            : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
         }
 
         public Assassin(string name, int level)
-            :this (name, level, 100)
+            : this(name, level, DEFAULT_HEALTH_POINTS)
         {
         }
 
         public Assassin(string name, int level, int healthPoints)
         {
-            Name = name;
-            Level = level;
             HealthPoints = healthPoints;
-            Weapon = new Sword();
-            BodyArmor = new LightLeatherVest();
+            Level = level;
+            Name = name;
+            AbilityPoints = DEFAULT_ABILITY_POINTS;
+            Faction = DEFAULT_FACTION;
+            BodyArmor = DEFAULT_BODY_ARMOR;
+            Weapon = DEFAULT_WEAPON;
         }
 
         public void Raze()
