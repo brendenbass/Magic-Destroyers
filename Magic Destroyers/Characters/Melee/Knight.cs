@@ -79,5 +79,20 @@ namespace Magic_Destroyers.Characters.Melee
         {
 
         }
+
+        public override void Attack()
+        {
+            HolyBlow();
+        }
+
+        public override void Defend()
+        {
+            RighteousWings();
+        }
+
+        public override void SpecialAttack()
+        {
+            PurifySoul();
+        }
     }
 }

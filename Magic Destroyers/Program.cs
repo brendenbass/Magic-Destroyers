@@ -1,5 +1,8 @@
-﻿using Magic_Destroyers.Characters.Melee;
+﻿using Magic_Destroyers.Characters;
+using Magic_Destroyers.Characters.Melee;
+using Magic_Destroyers.Characters.Spellcasters;
 using System;
+using System.Collections.Generic;
 
 namespace Magic_Destroyers
 {
@@ -7,10 +10,22 @@ namespace Magic_Destroyers
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            Character warrior = new Warrior();
+            Character knight = new Knight();
+            Character assassin = new Assassin();
+            Character mage = new Mage();
+            Character necromancer = new Necromancer();
+            Character druid = new Druid();
 
-            Assassin Mark = new Assassin();
-            Mark.Name = "Tu";
+            List<Character> meleeTeam = new List<Character>();
+            List<Character> spellTeam = new List<Character>();
+
+            meleeTeam.Add(warrior);
+            meleeTeam.Add(knight);
+            meleeTeam.Add(assassin);
+            spellTeam.Add(mage);
+            spellTeam.Add(necromancer);
+            spellTeam.Add(druid);
         }
     }
 }

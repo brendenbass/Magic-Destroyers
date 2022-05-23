@@ -19,33 +19,6 @@ namespace Magic_Destroyers.Characters.Melee
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
         private readonly Axe DEFAULT_WEAPON = new Axe();
 
-        private Chainlink bodyArmor;
-        private Axe weapon;
-
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            private set
-            {
-                bodyArmor = value;
-            }
-        }
-        
-        public Axe Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            set
-            {
-                weapon = value;
-            }
-        }
-
         public Warrior()
             :this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -58,13 +31,13 @@ namespace Magic_Destroyers.Characters.Melee
 
         public Warrior(string name, int level, int healthPoints)
         {
-            HealthPoints = healthPoints;
-            Level = level;
-            Name = name;
-            AbilityPoints = DEFAULT_ABILITY_POINTS;
-            Faction = DEFAULT_FACTION;
-            BodyArmor = DEFAULT_BODY_ARMOR;
-            Weapon = DEFAULT_WEAPON;
+            base.HealthPoints = healthPoints;
+            base.Level = level;
+            base.Name = name;
+            base.AbilityPoints = DEFAULT_ABILITY_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
         }
 
         public void Strike()
@@ -78,6 +51,21 @@ namespace Magic_Destroyers.Characters.Melee
         public void SkinHarden()
         {
 
+        }
+
+        public override void Attack()
+        {
+            Strike();
+        }
+
+        public override void Defend()
+        {
+            SkinHarden();
+        }
+
+        public override void SpecialAttack()
+        {
+            Execute();
         }
     }
 }

@@ -19,20 +19,6 @@ namespace Magic_Destroyers.Characters.Melee
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private LightLeatherVest bodyArmor;
-        private Sword weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get { return bodyArmor; }
-            private set { bodyArmor = value; }
-        }
-        public Sword Weapon
-        {
-            get { return weapon; }
-            private set { weapon = value; }
-        }
-
         public Assassin()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -65,6 +51,21 @@ namespace Magic_Destroyers.Characters.Melee
         public void Survival()
         {
 
+        }
+
+        public override void Attack()
+        {
+            Raze();
+        }
+
+        public override void Defend()
+        {
+            Survival();
+        }
+
+        public override void SpecialAttack()
+        {
+            BleedToDeath();
         }
     }
 }

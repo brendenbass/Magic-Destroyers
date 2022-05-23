@@ -1,5 +1,7 @@
 ﻿using Magic_Destroyers.Characters.Interfaces;
 using Magic_Destroyers.Enums;
+using Magic_Destroyers.Equipment.Armors;
+using Magic_Destroyers.Equipment.Weapons;
 using System;
 
 namespace Magic_Destroyers.Characters
@@ -22,6 +24,9 @@ namespace Magic_Destroyers.Characters
                 faction = value;
             }
         }
+
+        private Armor bodyArmor;
+        private Weapon weapon;
 
         public int HealthPoints
         {
@@ -63,6 +68,29 @@ namespace Magic_Destroyers.Characters
                 {
                     name = value;
                 }
+            }
+        }
+
+        public Armor BodyArmor {
+            get
+            {
+                return bodyArmor;
+            }
+            set
+            {
+                bodyArmor = value;
+            }
+
+        }
+        public Weapon Weapon
+        {
+            get
+            {
+                return weapon;
+            }
+            set
+            {
+                weapon = value;
             }
         }
 
