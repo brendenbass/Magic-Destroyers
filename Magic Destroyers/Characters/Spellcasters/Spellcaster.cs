@@ -2,7 +2,7 @@
 
 namespace Magic_Destroyers.Characters.Spellcasters
 {
-    public class Spellcaster : Character
+    public abstract class Spellcaster : Character
     {
         protected const Faction DEFAULT_FACTION = Faction.Spellcasters;
 

@@ -2,7 +2,7 @@
 
 namespace Magic_Destroyers.Characters.Melee
 {
-    public class Melee : Character
+    public abstract class Melee : Character
     {
         protected const Faction DEFAULT_FACTION = Faction.Melee;
 
