@@ -19,33 +19,6 @@ namespace Magic_Destroyers.Characters.Melee
         private readonly Chainlink DEFAULT_BODY_ARMOR = new Chainlink();
         private readonly Hammer DEFAULT_WEAPON = new Hammer();
 
-        private Chainlink bodyArmor;
-        private Hammer weapon;
-
-        public Chainlink BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            private set
-            {
-                bodyArmor = value;
-            }
-        }
-
-        public Hammer Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            private set
-            {
-                weapon = value;
-            }
-        }
-
         public Knight()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {

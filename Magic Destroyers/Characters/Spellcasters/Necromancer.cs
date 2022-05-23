@@ -19,33 +19,6 @@ namespace Magic_Destroyers.Characters.Spellcasters
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Sword DEFAULT_WEAPON = new Sword();
 
-        private LightLeatherVest bodyArmor;
-        private Sword weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            private set
-            {
-                bodyArmor = value;
-            }
-        }
-
-        public Sword Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            set
-            {
-                weapon = value;
-            }
-        }
-
         public Necromancer()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -78,6 +51,21 @@ namespace Magic_Destroyers.Characters.Spellcasters
         public void BoneShield()
         {
 
+        }
+
+        public override void Attack()
+        {
+            ShadowRage();
+        }
+
+        public override void Defend()
+        {
+            BoneShield();
+        }
+
+        public override void SpecialAttack()
+        {
+            VampireTouch();
         }
     }
 }

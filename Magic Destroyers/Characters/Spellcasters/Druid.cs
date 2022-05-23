@@ -19,34 +19,6 @@ namespace Magic_Destroyers.Characters.Spellcasters
         private readonly LightLeatherVest DEFAULT_BODY_ARMOR = new LightLeatherVest();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
-        private LightLeatherVest bodyArmor;
-        private Staff weapon;
-
-        public LightLeatherVest BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            private set
-            {
-                bodyArmor = value;
-            }
-        }
-
-        public Staff Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            set
-            {
-                weapon = value;
-            }
-        }
-
-
         public Druid()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -79,6 +51,21 @@ namespace Magic_Destroyers.Characters.Spellcasters
         public void OneWithTheNature()
         {
 
+        }
+
+        public override void Attack()
+        {
+            Moonfire();
+        }
+
+        public override void Defend()
+        {
+            OneWithTheNature();
+        }
+
+        public override void SpecialAttack()
+        {
+            Starburst();
         }
     }
 }

@@ -19,33 +19,6 @@ namespace Magic_Destroyers.Characters.Spellcasters
         private readonly ClothRobe DEFAULT_BODY_ARMOR = new ClothRobe();
         private readonly Staff DEFAULT_WEAPON = new Staff();
 
-        private ClothRobe bodyArmor;
-        private Staff weapon;
-
-        public ClothRobe BodyArmor
-        {
-            get
-            {
-                return bodyArmor;
-            }
-            private set
-            {
-                bodyArmor = value;
-            }
-        }
-
-        public Staff Weapon
-        {
-            get
-            {
-                return weapon;
-            }
-            set
-            {
-                weapon = value;
-            }
-        }
-
         public Mage()
             : this(DEFAULT_NAME, DEFAULT_LEVEL)
         {
@@ -78,6 +51,21 @@ namespace Magic_Destroyers.Characters.Spellcasters
         public void Meditation()
         {
 
+        }
+
+        public override void Attack()
+        {
+            ArcaneWrath();
+        }
+
+        public override void Defend()
+        {
+            Meditation();
+        }
+
+        public override void SpecialAttack()
+        {
+            Firewall();
         }
     }
 }
