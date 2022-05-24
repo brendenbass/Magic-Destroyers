@@ -11,7 +11,7 @@ namespace Magic_Destroyers.Characters.Spellcasters
 {
     public class Mage : Spellcaster
     {
-        private const string DEFAULT_NAME = "Jimbob";
+        private const string DEFAULT_NAME = "Mage";
         private const int DEFAULT_LEVEL = 10;
         private const int DEFAULT_HEALTH_POINTS = 100;
         private const int DEFAULT_ABILITY_POINTS = 100;
@@ -31,41 +31,43 @@ namespace Magic_Destroyers.Characters.Spellcasters
 
         public Mage(string name, int level, int healthPoints)
         {
-            HealthPoints = healthPoints;
-            Level = level;
-            Name = name;
-            ManaPoints = DEFAULT_ABILITY_POINTS;
-            Faction = DEFAULT_FACTION;
-            BodyArmor = DEFAULT_BODY_ARMOR;
-            Weapon = DEFAULT_WEAPON;
+            base.HealthPoints = healthPoints;
+            base.Level = level;
+            base.Name = name;
+            base.ManaPoints = DEFAULT_ABILITY_POINTS;
+            base.Faction = DEFAULT_FACTION;
+            base.BodyArmor = DEFAULT_BODY_ARMOR;
+            base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void ArcaneWrath()
+        public int ArcaneWrath()
         {
-
+            throw new NotImplementedException();
         }
-        public void Firewall()
+        public int Firewall()
         {
-
+            return base.Weapon.DamagePoints + 10;
         }
-        public void Meditation()
+        public int Meditation()
         {
-
-        }
-
-        public override void Attack()
-        {
-            ArcaneWrath();
+            return base.BodyArmor.ArmorPoints + 5;
         }
 
-        public override void Defend()
+        public override int Attack()
         {
-            Meditation();
+            return Firewall();
         }
 
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            Firewall();
+            return Meditation();
+        }
+
+        public override int SpecialAttack()
+        {
+            return ArcaneWrath();
         }
     }
 }

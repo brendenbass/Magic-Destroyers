@@ -11,7 +11,7 @@ namespace Magic_Destroyers.Characters.Melee
 {
     public class Warrior : Melee
     {
-        private const string DEFAULT_NAME = "Jimbob";
+        private const string DEFAULT_NAME = "Warrior";
         private const int DEFAULT_LEVEL = 10;
         private const int DEFAULT_HEALTH_POINTS = 120;
         private const int DEFAULT_ABILITY_POINTS = 100;
@@ -38,34 +38,36 @@ namespace Magic_Destroyers.Characters.Melee
             base.Faction = DEFAULT_FACTION;
             base.BodyArmor = DEFAULT_BODY_ARMOR;
             base.Weapon = DEFAULT_WEAPON;
+            base.IsAlive = true;
+            base.Scores = 0;
         }
 
-        public void Strike()
+        public int Strike()
         {
-
+            return base.Weapon.DamagePoints + 10;
         }
-        public void Execute()
+        public int Execute()
         {
-
+            throw new NotImplementedException();    
         }
-        public void SkinHarden()
+        public int SkinHarden()
         {
-
-        }
-
-        public override void Attack()
-        {
-            Strike();
+            return BodyArmor.ArmorPoints + 5;
         }
 
-        public override void Defend()
+        public override int Attack()
         {
-            SkinHarden();
+           return Strike();
         }
 
-        public override void SpecialAttack()
+        public override int Defend()
         {
-            Execute();
+            return SkinHarden();
+        }
+
+        public override int SpecialAttack()
+        {
+           return Execute();
         }
     }
 }

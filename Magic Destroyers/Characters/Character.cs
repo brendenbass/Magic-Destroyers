@@ -11,7 +11,9 @@ namespace Magic_Destroyers.Characters
         private Faction faction;
         private int healthPoints;
         private int level;
+        private int scores;
         private string name;
+        private bool isAlive;
 
         public Faction Faction
         {
@@ -49,6 +51,18 @@ namespace Magic_Destroyers.Characters
             set
             {
                 level = 1;
+            }
+        }
+
+        public int Scores
+        {
+            get
+            {
+                return scores;
+            }
+            protected set
+            {
+                scores = value;
             }
         }
 
@@ -94,10 +108,57 @@ namespace Magic_Destroyers.Characters
             }
         }
 
-        public abstract void Attack();
+        public bool IsAlive {
+            get
+            {
+                return isAlive;
+            }
+            protected set
+            {
+                isAlive = value;
+            }
+        }
 
-        public abstract void Defend();
+        public abstract int Attack();
 
-        public abstract void SpecialAttack();
+        public abstract int Defend();
+
+        public abstract int SpecialAttack();
+
+        public void TakeDamage(int damage, string attackerName)
+        {
+            if(Defend() < damage)
+            {
+                healthPoints = healthPoints - damage + Defend();
+
+                if(healthPoints <= 0)
+                {
+                    isAlive = false;
+                }
+            }
+            else
+            {
+                Console.WriteLine("Haha, your damage was not enough to harm me!");
+            }
+
+            if (!isAlive)
+            {
+                Console.WriteLine($"{name} received {damage} damage from {attackerName}, and is now dead.");
+            }
+            else
+            {
+                Console.WriteLine($"{name} received {damage} damage from {attackerName}, and now has {healthPoints} health.");
+            }
+        }
+
+        public void WonBattle()
+        {
+            scores++;
+
+            if (scores % 10 == 0)
+            {
+                level++;
+            }
+        }
     }
 }

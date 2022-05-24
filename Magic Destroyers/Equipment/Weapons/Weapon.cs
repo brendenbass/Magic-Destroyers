@@ -3,5 +3,7 @@
     public class Weapon
     {
         public int damage;
+
+        public int DamagePoints { get; set; }
     }
 }
